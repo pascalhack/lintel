@@ -2,6 +2,8 @@ FROM ubuntu
 #RUN dpkg --add-architecture i386
 RUN apt update
 #RUN apt upgrade -y
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' >/etc/timezone
 RUN apt install wine qemu-kvm *zenhei* xz-utils dbus-x11 curl firefox gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget sudo nano net-tools ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
 bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
 git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
