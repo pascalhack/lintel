@@ -23,7 +23,7 @@ RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
 # 设置默认键盘布局为美国英语
-RUN localectl set-keymap us
+# RUN localectl set-keymap us
 # 启动命令
 RUN echo 'whoami ' >>/x.sh
 RUN echo 'cd ' >>/x.sh
