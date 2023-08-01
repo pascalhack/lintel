@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian
 RUN dpkg --add-architecture i386
 RUN apt update
 RUN apt upgrade -y
