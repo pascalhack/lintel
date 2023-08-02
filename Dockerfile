@@ -22,8 +22,15 @@ RUN echo 'fuckyou' | vncpasswd -f > $HOME/.vnc/passwd
 RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
-# 设置默认键盘布局为美国英语
-# RUN localectl set-keymap us
+
+# 安装SSH服务
+RUN apt install -y openssh-server
+
+# 设置SSH远程访问
+RUN echo 'root:your_password' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/#Port 22/Port 22/' /etc/ssh/sshd_config
+
 # 启动命令
 RUN echo 'whoami ' >>/x.sh
 RUN echo 'cd ' >>/x.sh
@@ -32,4 +39,5 @@ RUN echo 'cd /noVNC-1.2.0' >>/x.sh
 RUN echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/x.sh
 RUN chmod 755 /x.sh
 EXPOSE 8900
-CMD  /x.sh 
+EXPOSE 22
+CMD  /x.sh
