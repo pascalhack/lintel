@@ -6,7 +6,7 @@ RUN apt update && apt install -y tzdata && ln -fs /usr/share/zoneinfo/Asia/Shang
 
 # 安装必要的软件包
 RUN apt update && apt upgrade -y && apt install -y \
-    tzdata wine qemu-kvm fonts-wqy-zenhei xz-utils dbus-x11 curl firefox-esr gnome-system-monitor mate-system-monitor git xfce4 xfce4-terminal tightvncserver wget sudo nano net-tools ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
+    tzdata wine qemu-kvm fonts-wqy-zenhei xz-utils dbus-x11 curl firefox gnome-system-monitor mate-system-monitor git xfce4 xfce4-terminal tightvncserver wget sudo nano net-tools ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
     bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
     git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
     libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
